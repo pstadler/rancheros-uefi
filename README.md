@@ -21,7 +21,7 @@ Because we're using UEFI, `ros config syslinux` won't work for editing kernel bo
 ```sh
 $ sudo system-docker run --rm --privileged -it -v /:/host alpine /bin/sh
 # inside the alpine container:
-$ mkdir -p /mnt/boot; mount /host/dev/vda1 /mnt/boot; cd /mnt/boot
+$ mkdir -p /mnt/boot; mount /host/dev/vda1 /mnt/boot
 $ vi /mnt/boot/EFI/BOOT/grub.cfg
 $ umount /host/dev/vda1
 # exit the container and reboot rancheros
