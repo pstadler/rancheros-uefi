@@ -13,3 +13,16 @@ menuentry "Rancher from GPT" {
     initrd    /boot/initrd-v1.5.6
 }
 ```
+
+## Change kernel boot parameters
+
+Because we're using UEFI, `ros config syslinux` won't work for editing kernel boot parameters. Use this instead:
+
+```sh
+$ sudo system-docker run --rm --privileged -it -v /:/host alpine /bin/sh
+# inside the alpine container:
+$ mkdir -p /mnt/boot; mount /host/dev/vda1 /mnt/boot; cd /mnt/boot
+$ vi /mnt/boot/EFI/BOOT/grub.cfg
+$ umount /host/dev/vda1
+# exit the container and reboot rancheros
+```
