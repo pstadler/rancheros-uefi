@@ -1,1 +1,2 @@
 rancheros-v1.5.6-UEFI.img filter=lfs diff=lfs merge=lfs -text
+rancheros-v1.5.8-UEFI.img filter=lfs diff=lfs merge=lfs -text
